@@ -7,10 +7,11 @@ namespace PhotoSharingApp.Models
 {
     public class Comment
     {
-        private int CommentID;
-        private String User;
-        private String Subject;
-        private String Body;
-        private int PhotoID;
+        private int CommentID { get; set; }
+        private String UserName { get; set; }
+        private String Subject { get; set; }
+        private String Body { get; set; }
+        private int PhotoID { get; set; }
+        public virtual  Photo Photo { get; set; }
     }
 }

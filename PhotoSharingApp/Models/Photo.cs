@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,11 +9,18 @@ namespace PhotoSharingApp.Models
 {
     public class Photo
     {
-        private int PhotoID;
-        private String Title;
-        private List<Byte> PhotoFile;
-        private String Description;
-        private DateTime CreateDate;
-        private String Owner;
+        private int PhotoID { get; set; }
+        private String Title { get; set; }
+        [DisplayName("Picture")]
+        private byte[] PhotoFile { get; set; }
+        [DataType(DataType.MultilineText)]
+        private String Description { get; set; }
+        [DisplayName("Created Date")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yy}", ApplyFormatInEditMode = true)]
+        private DateTime CreateDate { get; set; }
+        private String Owner { get; set; }
+        public virtual Photo photo { get; set; }
+
     }
 }
