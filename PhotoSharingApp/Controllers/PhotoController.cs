@@ -10,11 +10,12 @@ namespace PhotoSharingApp.Controller
     public class PhotoController : System.Web.Mvc.Controller
 
     {
+        private PhotoSharingContext context = new PhotoSharingContext();
         // GET: Photo
         public ActionResult Index()
         {
             var photo = new Photo();
-            return View(photo);
+            return View(context.Photos.First<Photo>());
         }
     }
 }

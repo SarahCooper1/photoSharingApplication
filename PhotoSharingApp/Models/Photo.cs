@@ -20,7 +20,9 @@ namespace PhotoSharingApp.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yy}", ApplyFormatInEditMode = true)]
         public DateTime CreateDate { get; set; }
         public String Owner { get; set; }
-        public virtual Photo photo { get; set; }
+        public string ImageMimeType { get; set; }
+
+       public virtual Photo photo { get; set; }
 
     }
 }
