@@ -1,0 +1,80 @@
+﻿@model PhotoSharingApp.Models.Photo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Display</title>
+</head>
+<body>
+    <div>
+        <h4>Photo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(models => models.Title)
+                @if (Model.PhotoFile != null)
+                {
+                    <img width="800" src="@Url.Action("GetImage", "Photo",
+                                           new { id=Model.PhotoID })" />
+                }
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(models => models.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(models => models.PhotoFile)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(models => models.PhotoFile)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(models => models.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(models => models.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(models => models.CreateDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(models => models.CreateDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(models => models.Owner)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(models => models.Owner)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(models => models.ImageMimeType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(models => models.ImageMimeType)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PhotoID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
