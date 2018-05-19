@@ -18,7 +18,7 @@ namespace PhotoSharingApp.Models
             photo.Title = "Test Photo";
             photo.Description = "test";
             photo.Owner = "NaokiSato";
-            photo.PhotoFile = System.IO.File.ReadAllBytes("C:/Users/Wafa/Desktop/Desktop (2)/Photo_sharing/photoSharingApplication/PhotoSharingApp/Images/flower.jpg");
+            photo.PhotoFile = System.IO.File.ReadAllBytes("C:/Users/Wafa/Desktop/Desktop (2)/Photo_sharing/photoSharingApplication/PhotoSharingApp/Images/image.jpg");
             photo.ImageMimeType = "image/jpeg";
             photo.CreateDate = DateTime.Now;
             photos.Add(photo);
