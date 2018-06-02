@@ -1,12 +1,13 @@
 ﻿@using MvcSiteMapProvider.Web.Html
 @{
-    Layout = "Welcome to Adventure Works Photo Sharing"; ;
     ViewBag.Title = "Welcome to Adventure Works Photo Sharing";
 }
 
 
-@@ -11,4 +11,4 @@
-         </p>
+<p>
+    Welcome to Adventure Works Photo
+    sharing! Use this site to share
+    your adventures.
+</p>
 <h2>Latest Photos</h2>
-@Html.Action("_PhotoGallery", "Photo", new { number = 3 })
-- 
+@Html.Action("_PhotoGallery", "Photo", new { number = 3 }) 
