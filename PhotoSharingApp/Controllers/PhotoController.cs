@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace PhotoSharingApp.Controller
 {
@@ -17,7 +18,8 @@ namespace PhotoSharingApp.Controller
 
         public PhotoController()
         {
-            context = new PhotoSharingContext();
+            PhotoSharingContext photoSharingContext = new PhotoSharingContext();
+            context = photoSharingContext;
         }
 
 
@@ -27,12 +29,12 @@ namespace PhotoSharingApp.Controller
         }
 
         // GET: Photo
+        [OutputCache(Duration = 600, Location = OutputCacheLocation.Server, VaryByParam = "none")]
         public ActionResult Index()
         {
-            //var photo = new Photo(); 
+
             return View("Index");
-            //context.Photos.First<Photo>()
-            //context.Photos.ToList()
+
         }
 
         public ActionResult Display(int id)
@@ -105,6 +107,7 @@ namespace PhotoSharingApp.Controller
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [OutputCache(Duration = 600, Location = OutputCacheLocation.Server, VaryByParam = "id")]
         public FileContentResult GetImage(int id)
         {
             Photo verif = context.FindPhotoById(id);
@@ -121,7 +124,7 @@ namespace PhotoSharingApp.Controller
 
         public ActionResult SlideShow()
         {
-            throw new NotImplementedException("The SlideShow action is not yet ready");
+            return View("SlideShow", context.Photos.ToList());
         }
         [ChildActionOnly]
         public ActionResult _PhotoGallery(int number = 0)
